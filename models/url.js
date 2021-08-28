@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const urlSchema = new Schema({
-  fullURL: {
+  inputURL: {
     type: String,
     require: true,
   },
-  shortURL: {
+  randomCode: {
     type: String,
-    
+    require: true,
   },
 })
 
-module.exports('URL', urlSchema)
+module.exports = mongoose.model('URL', urlSchema)
