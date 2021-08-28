@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.post('/shorten', (req, res) => {
+app.post('/shortened', (req, res) => {
   const { inputURL } = req.body
   let hosturl = req.headers.host
   let randomCode = ''
@@ -61,6 +61,19 @@ app.post('/shorten', (req, res) => {
   console.log('req.body', req.body)
 })
 
+app.get('/:randomCode', (req, res) => {
+  const randomCode = req.params.randomCode
+
+  URL.find({ randomCode: randomCode})
+     .lean()
+     .then( shortURL => {
+       if( shortURL.length === 0){
+          res.redirect('/')
+       }else{
+        res.redirect( shortURL[0].inputURL)
+       }
+     })
+})
 
 app.listen(port, () => {
   return console.log(`App is running on http://localhost:${port}`)

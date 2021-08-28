@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <a href="/">URL Shortener</a>
   <img src="" alt="url-shortener">
-  <form action="/shorten" method="POST">
+  <form action="/shortened" method="POST">
     <div class="form-group">
       <input type="url" class="form-control" id="inputURL" name="inputURL" placeholder="Input URL here" value="{{ inputURL }}">
     </div>
@@ -11,9 +11,7 @@
   <div>
     <h2> Success! Please use this link:</h2>
     <a name="shortURL" href="{{shortURL}}">
-      <h5>
-      {{shortURL}}
-      </h5>
+      <h5>{{shortURL}}</h5>
       </a>
         
     <button type="submit" class="btn btn-primary">Copy</button>
