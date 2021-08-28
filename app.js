@@ -63,7 +63,7 @@ app.post('/shortened', (req, res) => {
 
 app.get('/:randomCode', (req, res) => {
   const randomCode = req.params.randomCode
-
+   //從randomCode來找inputURL，並連線至inputURL
   URL.find({ randomCode: randomCode})
      .lean()
      .then( shortURL => {

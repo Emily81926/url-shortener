@@ -10,11 +10,24 @@
   {{#if shortURL}}
   <div>
     <h2> Success! Please use this link:</h2>
-    <a name="shortURL" href="{{shortURL}}">
+    <a name="shortURL" id="short-url" href="{{shortURL}}">
       <h5>{{shortURL}}</h5>
       </a>
         
-    <button type="submit" class="btn btn-primary">Copy</button>
+    <button type="submit" class="btn btn-primary" id="copy-btn">Copy</button>
   </div>
+  
+  <script>
+    const shortURL = document.querySelector('#short-url')
+    const copyBtn = document.querySelector('#copy-btn')
+
+    copyBtn.addEventListener('click', function onCopyBtnclicked(event) {
+      console.log('Copy Button is clicked!')
+      {{!-- 選取網址內容 --}}
+      window.getSelection().selectAllChildren(shortURL)
+      { { !--執行copy的指令--} }
+      document.execCommand('copy')
+    }) 
+  </script>
   {{/if}}
 </div>
