@@ -54,12 +54,11 @@ app.post('/shorten', (req, res) => {
         }else{
           shortURL = `https://${hosturl}/${randomCode}`
         }
-        res.render('index', { shortURL })
+        res.render('index', { inputURL, shortURL })
       })
       .catch(error => console.log(error))
 
   console.log('req.body', req.body)
-
 })
 
 
