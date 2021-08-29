@@ -39,7 +39,6 @@ router.post('/shortened', (req, res) => {
     })
     .catch(error => console.log(error))
 
-  console.log('req.body', req.body)
 })
 
 router.get('/:randomCode', (req, res) => {
