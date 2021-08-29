@@ -3,11 +3,11 @@ const Schema = mongoose.Schema
 const urlSchema = new Schema({
   inputURL: {
     type: String,
-    require: true,
+    required: true,
   },
   randomCode: {
     type: String,
-    require: true,
+    required: true,
   },
 })
 
